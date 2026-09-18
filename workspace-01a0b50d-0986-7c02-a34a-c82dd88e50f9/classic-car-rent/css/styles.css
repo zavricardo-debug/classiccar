@@ -481,3 +481,67 @@ footer p {
     font-size: 0.7rem;
   }
 }
+/* Frota slideshow (slide mode) */
+#frota .slider {
+  position: relative;
+  overflow: hidden;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 8px;
+  background: #000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+#frota .slider .slides {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+#frota .slider .slides .car-card {
+  min-width: 100%;
+  flex-shrink: 0;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+#frota .slider .car-card:hover { transform: none; }
+#frota .slider .car-card img {
+  width: 100%;
+  height: 420px;
+  display: block;
+  object-fit: cover;
+}
+#frota .slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  background: rgba(0,0,0,0.55);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.3rem;
+  line-height: 1;
+  padding: 0.55rem 0.8rem;
+  cursor: pointer;
+}
+#frota .slider-btn:hover { background: rgba(0,0,0,0.85); }
+#frota .slider-btn.prev { left: 10px; }
+#frota .slider-btn.next { right: 10px; }
+#frota .slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin: 0.7rem 0 0;
+}
+#frota .slider-dots .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  background: #bbb;
+  cursor: pointer;
+}
+#frota .slider-dots .dot.active { background: #e91e63; }
+@media (max-width: 600px) {
+  #frota .slider .car-card img { height: 260px; }
+}

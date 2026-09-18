@@ -67,6 +67,45 @@ document.addEventListener('DOMContentLoaded', () => {
       bookingForm.reset();
     });
   }
+
+  // Frota slideshow: present cars 1-6 in slide mode
+  const slider = document.getElementById('frotaSlider');
+  if (slider) {
+    const track = slider.querySelector('.slides');
+    const slides = track.children;
+    const dotsBox = document.getElementById('frotaDots');
+    let current = 0;
+    let timer = null;
+
+    const render = () => {
+      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      dotsBox.querySelectorAll('.dot').forEach((d, i) => {
+        d.classList.toggle('active', i === current);
+      });
+    };
+    const goTo = (i) => {
+      current = (i + slides.length) % slides.length;
+      render();
+    };
+    const restart = () => {
+      clearInterval(timer);
+      timer = setInterval(() => goTo(current + 1), 6000);
+    };
+
+    for (let i = 0; i < slides.length; i++) {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'dot';
+      dot.setAttribute('aria-label', 'Ir para a foto ' + (i + 1));
+      dot.addEventListener('click', () => { goTo(i); restart(); });
+      dotsBox.appendChild(dot);
+    }
+    slider.querySelector('.slider-btn.prev').addEventListener('click', () => { goTo(current - 1); restart(); });
+    slider.querySelector('.slider-btn.next').addEventListener('click', () => { goTo(current + 1); restart(); });
+
+    render();
+    restart();
+  }
 });
 
 // Simple lightbox for gallery images (placeholder)

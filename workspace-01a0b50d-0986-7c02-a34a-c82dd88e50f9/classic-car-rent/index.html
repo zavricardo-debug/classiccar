@@ -49,8 +49,10 @@
         Fotos originais dos nossos carros clássicos disponíveis para aluguel:
       </p>
 
-      <div class="gallery" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; justify-items: center;;">
-        
+      <!-- Slide mode: cars 1-6 -->
+      <div class="slider" id="frotaSlider">
+        <div class="slides">
+
         <!-- Car 1: Original Photo 1 -->
         <div class="car-card" style="width: 100%;  border-radius: 0; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.15); margin-bottom: 0.5rem;">
           <img src="images/IMG-20260909-WA0004.jpg" alt="Carro clássico para casamentos" style="width: 100%; object-fit: cover; border-radius: 0;">
@@ -87,15 +89,6 @@
           </div>
         </div>
 
-        
-        <!-- New Car in Nature Setting -->
-        <div class="car-card" style="width: 100%; border-radius: 0; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.15); margin-bottom: 0.5rem;">
-          <img src="images/street-car.jpg" alt="Carro clássico em ambiente natural" style="width: 100%; object-fit: cover; border-radius: 0;">
-          <div class="car-overlay" style="bottom: 0; background: rgba(0,0,0,0.7); padding: 0.5rem;">
-            <h3 style="margin: 0; font-size: 0.8rem; color: #fff;">Carro Na Rua</h3>
-            <p style="margin: 0.2rem 0 0 0; font-size: 0.6rem; color: #fff;">Cena de Rua</p>
-          </div>
-        </div>
 <!-- Car 5: Original Photo 5 -->
         <div class="car-card" style="width: 100%;  border-radius: 0; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.15);">
           <img src="images/IMG-20260909-WA0008.jpg" alt="Carro clássico para casamentos" style="width: 100%; object-fit: cover; border-radius: 0;">
@@ -105,7 +98,20 @@
           </div>
         </div>
 
+        <!-- Car 6: Original Photo 6 -->
+        <div class="car-card" style="width: 100%;  border-radius: 0; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.15);">
+          <img src="images/general-1.jpg" alt="Carro clássico original na rua de paralelepípedos" style="width: 100%; object-fit: cover; border-radius: 0;">
+          <div class="car-overlay" style="bottom: 0; background: rgba(0,0,0,0.7); padding: 0.5rem;">
+            <h3 style="margin: 0; font-size: 0.8rem; color: #fff;">Carro 6</h3>
+            <p style="margin: 0.2rem 0 0 0; font-size: 0.6rem; color: #fff;">💍 Para Casamento</p>
+          </div>
+        </div>
+
+        </div>
+        <button class="slider-btn prev" type="button" aria-label="Foto anterior">&#10094;</button>
+        <button class="slider-btn next" type="button" aria-label="Foto seguinte">&#10095;</button>
       </div>
+      <div class="slider-dots" id="frotaDots"></div>
     </div>
   </section>
 
@@ -137,6 +143,16 @@
           </div>
         </div>
 
+        <!-- Wedding Photo 3 -->
+        <div class="car-card" style="width: 100%; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.15);  display: flex; flex-direction: column; justify-content: flex-end; margin-top: 0.5rem;">
+          <img src="images/wedding-2.jpg" alt="Noiva ao lado do carro de casamento decorado com flores" style="width: 100%; object-fit: cover; border-radius: 8px 8px 0 0;">
+          <div style="padding: 0.8rem;">
+            <h3 style="margin: 0.3rem 0 0 0; color: #111; font-size: 0.8rem;">Carro de Casamento</h3>
+            <p style="margin: 0.3rem 0 0 0; color: #e91e63; font-size: 0.7rem; font-weight: bold;">💍 Para o grande dia</p>
+            <p style="margin: 0.3rem 0 0 0; font-size: 0.65rem; color: #666; line-height: 1.3;">Noiva ao lado do carro clássico decorado com flores brancas. Mais uma opção elegante para o seu dia especial em Lisboa e Portugal.</p>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -156,6 +172,16 @@
             <h3 style="margin: 0.3rem 0 0 0; color: #111; font-size: 0.8rem;">Carro de Filmagem</h3>
             <p style="margin: 0.3rem 0 0 0; color: #1976d2; font-size: 0.7rem; font-weight: bold;">🎬 Para produção</p>
             <p style="margin: 0.3rem 0 0 0; font-size: 0.65rem; color: #666; line-height: 1.4;">Foto do seu carro clássico em cenário de filmagem. Veículo autêntico para filmes, séries e promoções em Lisboa e Portugal.</p>
+          </div>
+        </div>
+
+        <!-- Film Photo 2: Shootout Scene -->
+        <div class="car-card" style="width: 100%; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.15);  display: flex; flex-direction: column; justify-content: flex-end; margin-top: 0.5rem;">
+          <img src="images/film-shootout.jpg" alt="Cenário de tiroteio de filme com o carro clássico" style="width: 100%; object-fit: cover; border-radius: 8px 8px 0 0;">
+          <div style="padding: 0.8rem;">
+            <h3 style="margin: 0.3rem 0 0 0; color: #111; font-size: 0.8rem;">Carro de Filmagem</h3>
+            <p style="margin: 0.3rem 0 0 0; color: #1976d2; font-size: 0.7rem; font-weight: bold;">🎬 Cena de Tiroteio</p>
+            <p style="margin: 0.3rem 0 0 0; font-size: 0.65rem; color: #666; line-height: 1.4;">O nosso carro clássico num cenário de tiroteio de filme. Perfeito para cenas de ação em produções cinematográficas em Lisboa e Portugal.</p>
           </div>
         </div>
 
