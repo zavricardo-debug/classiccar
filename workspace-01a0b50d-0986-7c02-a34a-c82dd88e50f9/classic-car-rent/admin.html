@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel - Classic Car Rentals</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">Classic<span>Rent</span></div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+    </ul>
+    <a href="index.html" class="admin-btn-back">Back to Site</a>
+  </nav>
+
+  <main class="admin-container">
+    <h2>Painel de Administração</h2>
+    <div class="card">
+      <h3>Gerenciar Preços</h3>
+      <form id="priceForm">
+        <div style="margin-bottom: 1rem;">
+          <label>Modelo do Carro</label>
+          <input type="text" id="carModel" placeholder="ex. 1965 Ford Mustang" required>
+        </div>
+        <div style="margin-bottom: 1rem;">
+          <label>Preço (EUR por dia)</label>
+          <input type="number" id="price" step="10" required>
+        </div>
+        <div style="margin-bottom: 1rem;">
+          <label>Estado de Disponibilidade</label>
+          <select id="availability" required>
+            <option value="available">Disponível</option>
+            <option value="unavailable">Indisponível</option>
+            <option value="blocked">Bloqueado</option>
+          </select>
+        </div>
+        <button type="submit" class="btn">Guardar Preço</button>
+      </form>
+    </div>
+
+    <div class="card" style="margin-top: 2rem;">
+      <h3>Preços e Disponibilidade Atuais</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Modelo do Carro</th>
+            <th>Preço (EUR/dia)</th>
+            <th>Estado</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="priceTable">
+          <!-- Dynamically populated -->
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <script>
+    // Simple localStorage-based persistence for demo purposes
+    document.addEventListener('DOMContentLoaded', () => {
+      const prices = JSON.parse(localStorage.getItem('carPrices')) || [];
+      const table = document.getElementById('priceTable');
+
+      function renderTable() {
+        table.innerHTML = '';
+        prices.forEach((p, i) => {
+          const row = `<tr>
+            <td>${p.car}</td>
+            <td>${p.price} €</td>
+            <td><span class="status-${p.status}">${p.status}</span></td>
+            <td><button class="btn-small" onclick="deletePrice(${i})">Remover</button></td>
+          </tr>`;
+          table.innerHTML += row;
+        });
+      }
+
+      window.deletePrice = (i) => {
+        prices.splice(i, 1);
+        localStorage.setItem('carPrices', JSON.stringify(prices));
+        renderTable();
+      };
+
+      // Add new price
+      const form = document.getElementById('priceForm');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const car = document.getElementById('carModel').value;
+        const price = document.getElementById('price').value;
+        const status = document.getElementById('availability').value;
+        prices.push({ car, price, status });
+        localStorage.setItem('carPrices', JSON.stringify(prices));
+        renderTable();
+        form.reset();
+      });
+
+      renderTable();
+    });
+  </script>
+</body>
+</html>
