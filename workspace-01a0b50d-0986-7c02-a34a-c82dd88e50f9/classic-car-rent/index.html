@@ -49,8 +49,10 @@
         Fotos originais dos nossos carros clássicos disponíveis para aluguel:
       </p>
 
-      <div class="gallery" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; justify-items: center;;">
-        
+      <!-- Slide mode: cars 1-6 -->
+      <div class="slider" id="frotaSlider">
+        <div class="slides">
+
         <!-- Car 1: Original Photo 1 -->
         <div class="car-card" style="width: 100%;  border-radius: 0; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.15); margin-bottom: 0.5rem;">
           <img src="images/IMG-20260909-WA0004.jpg" alt="Carro clássico para casamentos" style="width: 100%; object-fit: cover; border-radius: 0;">
@@ -105,16 +107,11 @@
           </div>
         </div>
 
-        <!-- Car 7: Original Photo 7 -->
-        <div class="car-card" style="width: 100%;  border-radius: 0; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.15);">
-          <img src="images/new-car-original.jpg" alt="Carro clássico original na garagem" style="width: 100%; object-fit: cover; border-radius: 0;">
-          <div class="car-overlay" style="bottom: 0; background: rgba(0,0,0,0.7); padding: 0.5rem;">
-            <h3 style="margin: 0; font-size: 0.8rem; color: #fff;">Carro 7</h3>
-            <p style="margin: 0.2rem 0 0 0; font-size: 0.6rem; color: #fff;">💍 Para Casamento</p>
-          </div>
         </div>
-
+        <button class="slider-btn prev" type="button" aria-label="Foto anterior">&#10094;</button>
+        <button class="slider-btn next" type="button" aria-label="Foto seguinte">&#10095;</button>
       </div>
+      <div class="slider-dots" id="frotaDots"></div>
     </div>
   </section>
 
